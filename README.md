@@ -1,4 +1,4 @@
-<h1>ROCK PAPER SCISSORS GAME API<h1>
+<h1>ROCK PAPER SCISSORS GAME API</h1>
   
  This is the implementation of an api for the game Rock-Paper-Scissors.
  It provides two services:
@@ -9,17 +9,19 @@
  The api sends back the list of users who have played so far and their score
  
  The api has two endpoints that can be reached at:
- PLAY:
- `http://localhost:8080/rsp-game/gameapi/shoot?player_name=<PLAYER_NAME>&play=<PLAY>`
-  <PLAYER_NAME> should be replaced by the player's name
+ PLAY:<br/>
+ [http://localhost:8080/rsp-game/gameapi/shoot](http://localhost:8080/rsp-game/gameapi/shoot)?player_name=<PLAYER_NAME>&play=<PLAY><br/>
+ <br/>
+  **<PLAYER_NAME>** should be replaced by the player's name
               This is case Sensitive. Also, the api will
-             eliminate trailing spaces
-  <PLAY> can be either "rock", "paper" or "scissors"
+             eliminate trailing spaces<br/>
+             
+  **<PLAY>** can be either "rock", "paper" or "scissors"
         This is case Insensitive. Also, the api will
-        eliminate trailing spaces
+        eliminate trailing spaces<br/>
   
  LEADERBOARD:
- `http://localhost:8080/rsp-game/gameapi/leaderboard`
+ [http://localhost:8080/rsp-game/gameapi/leaderboard](http://localhost:8080/rsp-game/gameapi/leaderboard)
   
   Note: a Postman collection for the previous request can be found at:
   `https://www.getpostman.com/collections/bf6eee0d4f79c523d0e3`
