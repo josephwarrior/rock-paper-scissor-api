@@ -33,6 +33,7 @@ public class MainResource {
 
 		String result=playService.playAndGetResult(play);
 		pService.registerResult(pName, result);
+
 		
 		return Response.status(Response.Status.OK).entity(pName + " " +result).build();
 	}

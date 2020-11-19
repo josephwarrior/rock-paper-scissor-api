@@ -17,7 +17,7 @@ public class PlayerService {
 	
 	
 	public void registerResult(String pName, String result) {
-		pName=pName.toLowerCase().trim();
+		pName=pName.trim();
 		if(result.equals("wins")) {
 			checkPlayerAndIncrementScore(pName);
 		}else {
@@ -50,6 +50,10 @@ public class PlayerService {
 		List<Player> players=new ArrayList<Player>(playerDB.values());
 		Collections.sort(players);
 		return players;
+	}
+	
+	public int getPlayerScore(String pName) {
+		return playerDB.get(pName).getWonRounds();
 	}
 	
 }

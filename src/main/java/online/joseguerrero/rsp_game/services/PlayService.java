@@ -11,7 +11,11 @@ public class PlayService {
 	public final int PLAYER_LOSES=-1;
 	private String[] results= {"loses","ties the round","wins"};
 	
-	String[] playArray= {"rock","paper","scissors"};
+	
+	private final String ROCK_STR="rock";
+	private final String PAPER_STR="paper";
+	private final String SCISSORS_STR="scissors";
+	String[] playArray= {ROCK_STR,PAPER_STR,SCISSORS_STR};
 	private int rockValue=1;
 	private int paperValue=2;
 	private int scissorsValue=3;
@@ -19,7 +23,7 @@ public class PlayService {
 
 	private boolean isValidPlay(String play) {
 		play=play.toLowerCase().trim();
-		if(play.equals("rock")||play.equals("paper")||play.equals("scissors")) {
+		if(play.equals(ROCK_STR)||play.equals(PAPER_STR)||play.equals(SCISSORS_STR)) {
 			return true;
 		}
 		return false;
@@ -40,15 +44,21 @@ public class PlayService {
 		String playerPickedWord = play.toLowerCase().trim();
 		String gamePickedWord= getGamePickedWord();
 		
-		applyLogic(playerPickedWord);
+		String result=getPlayerResult(playerPickedWord,gamePickedWord);
 		
-		int playerPickedWordValue= getStringValue(playerPickedWord);
-		int gamePickedWordValue= getStringValue(gamePickedWord);
+		return result;
 		
-		int resultIndex= (playerPickedWordValue-gamePickedWordValue)+1;
+	}
+	
+	public String getPlayerResult(String userPlay, String gamePlay) {
+		applyLogic(userPlay);
+		
+		int userPlayValue=getStringValue(userPlay);
+		int gamePlayValue=getStringValue(gamePlay);
+		
+		int resultIndex=userPlayValue-gamePlayValue+1;
 		
 		return results[resultIndex];
-		
 	}
 	
 	
@@ -59,19 +69,19 @@ public class PlayService {
 	}
 	
 	
-	public void applyLogic(String play) {
-		switch(play) {
-		case "rock":
+	private void applyLogic(String userPlay) {
+		switch(userPlay) {
+		case ROCK_STR:
 			this.scissorsValue=1;
 			this.rockValue=2;
 			this.paperValue=3;
 			break;
-		case "paper":
+		case PAPER_STR:
 			this.rockValue=1;
 			this.paperValue=2;
 			this.scissorsValue=3;
 			break;
-		case "scissors":
+		case SCISSORS_STR:
 			this.paperValue=1;
 			this.scissorsValue=2;
 			this.rockValue=3;		
@@ -84,14 +94,14 @@ public class PlayService {
 		}
 	}
 
-	public int getStringValue(String playString) {
+	private int getStringValue(String playString) {
 		playString=playString.toLowerCase().trim();
 		switch(playString) {
-		case "rock":
+		case ROCK_STR:
 			return rockValue;
-		case "paper":
+		case PAPER_STR:
 			return paperValue;
-		case "scissors":
+		case SCISSORS_STR:
 			return scissorsValue;
 		default:
 			return 2;
