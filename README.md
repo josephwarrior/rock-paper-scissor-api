@@ -8,7 +8,7 @@
  LEADERBOARD:
  The api sends back the list of users who have played so far and their score
  
- The api has two endpoints that can be reached at:
+ The api has two endpoints that can be reached at:<br/>
  PLAY:<br/>
  [http://localhost:8080/rsp-game/gameapi/shoot](http://localhost:8080/rsp-game/gameapi/shoot)?player_name=<PLAYER_NAME>&play=<PLAY><br/>
  <br/>
