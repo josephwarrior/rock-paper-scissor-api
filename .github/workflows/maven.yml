@@ -23,7 +23,7 @@ jobs:
     - name: Build with Maven
       run: |
         mvn -B package --file pom.xml
-        mkdir staging && cp target/*.jar staging
+        mkdir staging && cp target/*.war staging
     - name: setting up a cache
       uses: actions/cache@v2
       with:
