@@ -21,7 +21,9 @@ jobs:
       with:
         java-version: 1.8
     - name: Build with Maven
-      run: mvn -B package --file pom.xml
+      run: |
+        mvn -B package --file pom.xml
+        mkdir staging && cp target/*.jar staging
     - name: setting up a cache
       uses: actions/cache@v2
       with:
@@ -34,3 +36,8 @@ jobs:
       run: |
         cd target
         ls -lah
+    - name: saving artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: rpi-artifacts
+        path: staging
